@@ -5,6 +5,8 @@
 
 # MEAN
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/linnovate/hellogitty?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 MEAN is a framework for an easy starting point with [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. It is designed to give you a quick and organized way to start developing MEAN based web apps with useful modules like Mongoose and Passport pre-bundled and configured. We mainly try to take care of the connection points between existing popular frameworks and solve common integration problems.
 ## Prerequisites
 * *MongoDB* - <a href="http://www.mongodb.org/downloads">Download</a> and Install mongodb - <a href="http://docs.mongodb.org/manual">Checkout their manual</a> if you're just starting.
