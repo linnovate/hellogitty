@@ -1,3 +1,7 @@
 {
-	"dependencies":{"mean-admin":"latest"}
+	"dependencies":{
+		"mean-admin":"latest",
+		"mean-compass":"latest"
+		
+	}
 }
