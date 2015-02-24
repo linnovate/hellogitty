@@ -1,5 +1,6 @@
 <div class="" data-ng-controller="ProductsController">
- 
+
+ <div data-ng-if="hasPermission('canCreateProduct')">
   <div class="col-md-12">
     <ul class="nav nav-tabs">
       <li role="presentation" class="active"><a href="#">Add</a></li>
@@ -97,6 +98,6 @@
 
       </div><!-- row ends-->
 
-
+</div>
 </div>
 

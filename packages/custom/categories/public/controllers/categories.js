@@ -1,13 +1,15 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.categories').controller('CategoriesController', ['$scope', 'Global', 'Categories','$resource','$location','$stateParams',
-  function($scope, Global, Categories, $resource, $location, $stateParams) {
+angular.module('mean.categories').controller('CategoriesController', ['$scope', 'Global', 'Categories','$resource','$location','$stateParams','ManagePermission',
+  function($scope, Global, Categories, $resource, $location, $stateParams,ManagePermission) {
     $scope.global = Global;
     $scope.package = {
       name: 'categories',
       desc: 'manage categories'
     };
+
+    $scope.hasPermission = ManagePermission;
 
     $scope.create = function(){
     	var category = new Categories({

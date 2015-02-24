@@ -1,5 +1,6 @@
 <div class="" data-ng-controller="CategoriesController">
-  
+  <div data-ng-if="hasPermission('canCreateProduct')">
+
   <h2>Package: {{package.name}}</h2>
   <div class="page-header"><h4>{{package.desc}}</h4></div>
   <ul class="nav nav-tabs">
@@ -57,5 +58,6 @@
   </br>
   <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
   </br> -->
+</div><!--permission-->
 </div>
 

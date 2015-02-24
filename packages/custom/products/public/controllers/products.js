@@ -1,13 +1,15 @@
 'use strict';
 
 /* jshint -W098 */
-angular.module('mean.products').controller('ProductsController', ['$scope', '$resource', 'Global', 'Products','$stateParams','$location','$http','upload',
-  function($scope, $resource, Global, Products, $stateParams,$location,$http, upload) {
+angular.module('mean.products').controller('ProductsController', ['$scope', '$resource', 'Global', 'Products','$stateParams','$location','$http','upload','ManagePermission',
+  function($scope, $resource, Global, Products, $stateParams,$location,$http, upload, ManagePermission) {
     $scope.global = Global;
     $scope.package = {
       name: 'products'
     };
 
+    $scope.hasPermission = ManagePermission;
+    
     $scope.create = function() {
       console.log($scope.responseData);    
         var product = new Products({

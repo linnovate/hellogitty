@@ -1,5 +1,5 @@
 <div class="" data-ng-controller="ProductsController">
-
+<div data-ng-if="hasPermission('canManageProduct')">
 
   <div class="col-md-12">
     <ul class="nav nav-tabs">
@@ -29,7 +29,7 @@
               <div class="col-md-3" class="page-header"> <h4>name</h4></div><!-- col ends -->
               <div class="col-md-5" class="page-header"> <h4>description</h4></div><!-- col ends -->
               <div class="col-md-2" class="page-header"> <h4>edit</h4></div><!-- col ends -->
-              <div class="col-md-2" class="page-header"> <h4>delete</h4></div><!-- col ends -->
+              <div class="col-md-2" class="page-header" data-ng-if="hasPermission('canDeleteProduct')"> <h4>delete</h4></div><!-- col ends -->
             </div><!-- row ends-->
           </div><!-- col ends -->
           <hr> 
@@ -40,7 +40,7 @@
               <div class="col-md-3"> <a href="/#!/products/view/{{product._id}}">{{product.title}}</a></div><!-- col ends -->
               <div class="col-md-5"> <p>{{product.description}}</p></div><!-- col ends -->
               <div class="col-md-2"> <a href="/#!/products/edit/{{product._id}}"><i class="glyphicon glyphicon-edit"></i></a></div><!-- col ends -->
-              <div class="col-md-2"> <a class="btn" data-ng-click="remove(product);"><i class="glyphicon glyphicon-trash"></i></a></div><!-- col ends -->
+              <div class="col-md-2" data-ng-if="hasPermission('canDeleteProduct')"> <a class="btn" data-ng-click="remove(product);"><i class="glyphicon glyphicon-trash"></i></a></div><!-- col ends -->
             </div><!-- row ends-->
           </div><!-- col ends -->
           <hr>
@@ -48,27 +48,7 @@
                     
           
           
-         <div class="col-md-12" style="text-align:center;">
-          <nav>
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-         </div><!-- col ends -->
+         
       </div><!-- row ends-->
     </section>  
   <!-- <ol>
@@ -85,6 +65,6 @@
       <a href="products/example/render">Raw Html rendering example from using swig</a>
     </li>
   </ol> -->
-
+</div>
 </div>
 

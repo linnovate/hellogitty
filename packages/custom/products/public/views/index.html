@@ -1,4 +1,4 @@
-<div class="" data-ng-controller="ProductsController">
+<div class="" data-ng-controller="ProductsController" >
   
 
 
@@ -11,6 +11,12 @@
       <li role="presentation"><a href="/#!/products/list">View</a></li>
     </ul>
   </div>
+
+  <div data-ng-if="hasPermission('canCreateProduct')">can add</div>
+  <div data-ng-if="hasPermission('canManageProduct')">can manage</div>
+  <div data-ng-if="hasPermission('canDeleteProduct')">can delete</div>
+
+
   <!-- <ol>
     <li>
       <a href="products/example/anyone">Server route that anyone can access</a>
