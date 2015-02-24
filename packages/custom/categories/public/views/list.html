@@ -1,0 +1,53 @@
+<div class="" data-ng-controller="CategoriesController">
+  
+  <h2>Package: {{package.name}}</h2>
+  <div class="page-header"><h4>{{package.desc}}</h4></div>
+  <ul class="nav nav-tabs" class="content">
+    <li role="presentation"><a href="/#!/categories/example">Home</a></li>
+    <li role="presentation"><a href="/#!/categories/add">Add</a></li>
+    <li role="presentation" class="active"><a href="#">View</a></li>
+  </ul>
+<div class="content">
+  <div class="col-md-12">
+    <div data-ng-init="listAll()">
+      <div class="col-md-3"><h4>name</h4></div>
+      <div class="col-md-7"><h4>description</h4></div>
+      <div class="col-md-1"><h4>Edit</h4></div>
+      <div class="col-md-1"><h4>Delete</h4></div>
+    </div>
+  </div><!--col ends-->
+  <hr>
+</div>
+<div data-ng-init="all()">
+  <div class="col-md-12" data-ng-repeat="category in list">
+    <div class="col-md-3"><a href="">{{category.name}}</a></div>
+    <div class="col-md-7">{{category.description}}</div>
+    <div class="col-md-1"><a href="/#!/categories/edit/{{category._id}}"><i class="glyphicon glyphicon-edit"></i></a></div>
+    <div class="col-md-1"><a class="btn" data-ng-click="remove(category);"><i class="glyphicon glyphicon-trash"></i></a></div>
+  </div><!--col ends-->
+  <hr>
+</div><!--ng init-->
+<!--   <ol>
+    <li>
+      <a href="categories/example/anyone">Server route that anyone can access</a>
+    </li>
+    <li>
+      <a href="categories/example/auth">Server route that requires authentication</a>
+    </li>
+    <li>
+      <a href="categories/example/admin">Server route that requires admin user</a>
+    </li>
+    <li>
+      <a href="categories/example/render">Raw Html rendering example from using swig</a>
+    </li>
+  </ol>
+  <h3><img src="/categories/assets/img/logo.png" /></h3>
+  </br>
+  <p class="alert alert-info">You can find your package in /packages/categories</p>
+  </br>
+  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/categories</p>
+  </br>
+  <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
+  </br> -->
+</div>
+
