@@ -1,0 +1,52 @@
+<section data-ng-controller="PermissionController" data-ng-init="fetchUsersList()">
+	<div data-ng-if="hasPermission('canManagePermission')">
+		<ul class="nav nav-tabs" role="tablist">
+			<li  class="active" data-ng-if="hasPermission('canManagePermission')"><a href="/#!/manage/users">Active users</a></li>
+			<li data-ng-if="hasPermission('canManagePermission')"><a href="/#!/manage/users/permissions">Permissions</a></li>
+		</ul>
+		<div class="panel panel-default col-nd-12">
+			<div class="panel-heading">
+				<input ng-model="searchText" placeholder ="Search User By Name" class="filter-user">
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">List of active users</div>
+			<!-- Table -->
+			<table class="table user-table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First Name</th>
+						<th>email</th>
+						<th>Roles</th>
+						<th>Operation</th>
+					</tr>
+				</thead>
+				<tbody data-ng-repeat="user in users | filter:searchText | orderBy: 'name'">
+					<tr data-ng-if="!user.isediting">
+						<td>{{$index + 1}}</td>
+						<td>{{user.name}}</td>
+						<td>{{user.email}}</td>
+						<td><span data ng-repeat="role in user.roles">{{role}}, </span></td>
+						<td data-ng-if="user.name!== 'anonymous'"><a class="user-link" data-ng-click="editUser(user)">edit</a>  |  <a class="user-link" data-ng-click="deleteUser(user)">delete</a></td>
+					</tr>
+					<tr data-ng-if="user.isediting">
+						<td>{{$index + 1}}</td>
+						<td><input type="text" class="form-control" data-ng-model="user.name" placeholder="Enter First Name" required/></td>
+						<td><input type="text" class="form-control" data-ng-model="user.email" placeholder="Enter Email" required/></td>
+						<td><span data ng-repeat="role in user.roles">{{role}}, </span></td>
+						<td><a class="user-link" data-ng-click="saveUser(user)">save</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<div data-ng-controller="PermissionController" data-ng-init="fetchPermission()">
+	<div data-ng-if="hasPermission('canManagePermission')" class="manage-user-permission" ng-include="'permission/views/manage-users-role.html'"/>
+	<div data-ng-if="!hasPermission('canManagePermission')" class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">You are not authorize to access this page</h3>
+		</div>
+	</div>
+</div>
