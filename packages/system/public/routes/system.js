@@ -61,11 +61,14 @@ angular.module('mean.system').config(['$meanStateProvider', '$urlRouterProvider'
         url: '/packages',
         templateUrl: 'system/views/packages.html'
       }).state('package', {
-        url: '/package',
+        url: '/:productId',
         templateUrl: 'system/views/package.html'
       }).state('categories', {
         url: '/categories',
         templateUrl: 'system/views/categories.html'
+      }).state('search', {
+        url: '/search/:searchName',
+        templateUrl: 'system/views/search.html'
       });
   }
 ]).config(['$locationProvider',

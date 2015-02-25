@@ -83,18 +83,18 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
         var searchName = title;
         
         $location.path('products/search/' + searchName);
-
-
-
+        
       };
       
 
       $scope.searchResult = function(){
           var searchName= $stateParams.searchName; 
+          console.log(searchName);
         $resource('/products/search/' + searchName).query()
           .$promise.then(function(products){
 
               if(products){
+                console.log(products);
                 $scope.result=products;
                 $scope.searchName = searchName ;
               }else{

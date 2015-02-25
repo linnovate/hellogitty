@@ -46,6 +46,12 @@
                     <!--css-toggle-switch ends-->
                 </div>
                 <div class="form-group">
+                    <label for="Tags">Tags</label>
+                    <input type="text" class="form-control" placeholder="eg : social, facebook" name="tags" data-ng-model="tags">
+                    <p class="help-block"> tags separated by comma </p>
+                </div>
+
+                <div class="form-group">
                     <label for="CoverImage">Featured Image</label>
 
                     <!-- <input type="file" data-ng-change="uploadfile(files)" file-model="files"/> -->
@@ -63,39 +69,13 @@
                     </div>
                     
                 </div>
-                <div class="form-group">
-                    <label for="Tags">Tags</label>
-                    <input type="text" class="form-control" placeholder="eg : social, facebook" name="tags" data-ng-model="tags">
-                    <p class="help-block"> tags separated by comma </p>
-                </div>
-
                
                 <button class="btn btn-default" type="submit">Add This Product</button>
               </form>
           </div><!--col-ends-->
 
           <div class="col-md-6">
-            <table>
-              <tr>
-                <td>{{name}}</td>
-              </tr>
-              <tr>
-                <td>{{desc}}</td>
-              </tr>
-              <tr>
-                <td>{{category}}</td>
-              </tr>
-              <tr>
-                <td>{{amount}}</td>
-              </tr>
-              <tr>
-                <td>{{featured}}</td>
-              </tr>
-              <tr>
-                <td>{{tags}}</td>
-              </tr>
-            </table>
-
+            
           </div><!-- col end-->
 
 

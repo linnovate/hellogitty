@@ -1,9 +1,9 @@
-<section class="container">
+<section class="container" data-ng-controller="IndexController">
   <div class="row">
    <div class="col-md-12">
     <ul class="nav navbar-nav">
-        <li><a href="/#!/home">Home <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="#">Packages</a></li>
+        <li><a href="/#!/">Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/#!/packages">Packages</a></li>
         <li class="dropdown">
           <a href="/#!/categories" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -13,9 +13,9 @@
           </ul>
         </li>
      </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form  role="search" data-ng-submit="searchByName(title)" class="navbar-form navbar-right form-inline">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" data-ng-model="title">
         </div>
         <button type="submit" class="btn btn-default">Search</button>
       </form>
@@ -23,22 +23,33 @@
   </div><!-- row ends-->
   <hr>
 
+  <div data-ng-init="findOne()">
   <section>
     <div class="row">
       <div class="col-md-3">
         <div class="row">
           <div class="col-md-12">
-            <div class="page-header"><h3>Fb Updates</h3></div>
+            <div class="page-header"><h3>{{product.title}}</h3></div>
             <ol class="breadcrumb">
-              <li><a href="#">Social</a></li>
-              <li class="active">Fb Updates</li>
+              <li><a href="#">{{product.category.name}}</a></li>
+              <li class="active">{{product.title}}</li>
             </ol>
           </div><!-- col ends -->
         </div><!-- row ends -->
 
          <div class="row">
           <div class="col-md-12">
-            <img src="http://placehold.it/200x200">
+            <img src="../files/public/featured/{{product.path}}">
+          </div><!-- col ends -->
+        </div><!-- row ends -->
+         <div class="row">
+          <div class="col-md-12">
+                Amount  :  {{product.amount}}
+          </div><!-- col ends -->
+        </div><!-- row ends -->
+         <div class="row">
+          <div class="col-md-12">
+            <p>Tags  :  {{product.tags}}</p>
           </div><!-- col ends -->
         </div><!-- row ends -->
 
@@ -48,117 +59,16 @@
 
       </div><!-- col ends -->
       <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-12">
-            <form class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <select class="form-control">
-                  <option>Most Used</option>
-                  <option>Fetuared</option>
-                  <option>Free</option>
-                </select>
-              </div>
-            </form>
-          </div><!-- col ends-->
-        </div><!-- row ends-->
-        <hr>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-          </div><!-- row ends -->
-          </div> <!-- col ends -->
-        </div><!-- row ends -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-          </div><!-- row ends -->
-          </div> <!-- col ends -->
-        </div><!-- row ends -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-            <div class="col-md-4">
-              <img src="http://placehold.it/200x200">
-              <br>
-              <dl>
-                <dt>Name of a package</dt>
-                <dt>ratings</dt>
-              </dl>
-            </div><!-- col ends-->
-          </div><!-- row ends -->
-          </div> <!-- col ends -->
-        </div><!-- row ends -->
 
-        <div class="page-header" style="text-align:center; cursor:pointer;"><h4>Load More ...</h4></div>
+        <div class="col-md-12"><div class="page-header"><h5>Description :  {{product.description}}</h4></div></div><!--col-ends-->
+        
 
       </div><!-- col ends -->
+
+
     </div><!-- row ends-->
   </section>
-
+  </div>
 
 
 </section>
