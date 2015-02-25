@@ -61,6 +61,7 @@
                         class="btn btn-primary btn-upload"
                         url="/uploadFile"
                         param="files"
+                        accept="{{acceptTypes}}"
                         on-upload="onUpload(files)"
                         on-success="onGlobalSuccess(response)"
                         on-error="onError(response)"
@@ -68,6 +69,7 @@
                       >Fileupload
                     </upload-button>
                     </div>
+                    {{status}}
                     
                 </div>
                

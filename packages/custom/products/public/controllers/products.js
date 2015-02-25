@@ -7,7 +7,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
     $scope.package = {
       name: 'products'
     };
-
+    $scope.status ="";
     $scope.hasPermission = ManagePermission;
     
     $scope.create = function() {
@@ -127,6 +127,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
       };
 
       $scope.onUpload = function (files) {
+        $scope.status = 'uploading file..';
         upload({
           url: '/uploadFile',
           method: 'POST',
@@ -146,11 +147,13 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
       $scope.onError = function (response) {
         console.error('HellController.onError', response);
         $scope.responseData = response.data;
+        $scope.status = 'uploading failed';
       };
 
       $scope.onComplete = function (response) {
         console.log('HellController.onComplete', response);
         $scope.responseData = response.data;
+        $scope.status = 'file has been upload successfully..';
       };
 
       /*image upload*/
