@@ -16,6 +16,7 @@ module.exports = function(Products, app, auth, database) {
   app.get('/product/featured',product.showFeatured);
   app.param('productId', product.product);
   app.post('/uploadFile' , product.uploadImage);
+  app.get('/fetch/tags',product.allTags);
 
   /*app.get('/products/example/anyone', function(req, res, next) {
     res.send('Anyone can access this');

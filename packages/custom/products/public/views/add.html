@@ -47,7 +47,8 @@
                 </div>
                 <div class="form-group">
                     <label for="Tags">Tags</label>
-                    <input type="text" class="form-control" placeholder="eg : social, facebook" name="tags" data-ng-model="tags">
+                    <!-- <input type="text" class="form-control" placeholder="eg : social, facebook" name="tags" data-ng-model="tags"> -->
+                    <input style="width:300px" class="row clearfix clearboth" ui-select2="tagsOptions" ng-model="tags"/>
                     <p class="help-block"> tags separated by comma </p>
                 </div>
 

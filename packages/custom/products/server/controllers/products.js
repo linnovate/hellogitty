@@ -184,3 +184,29 @@ exports.allCategories = function(req, res) {
     res.json(categories);
   });
 };
+
+
+/*
+ * List of all tags
+ */
+exports.allTags = function(req, res) {
+  Product.find({
+    tags: {
+      $regex: req.query.term
+    }
+  }).exec(function(err, products) {
+    var tags = [];
+    products.forEach(function(product) {
+      if (product.tags) {
+        tags = tags.concat(product.tags);
+      }
+    });
+    tags.push(req.query.term);
+    tags = _.uniq(tags);
+    tags = _.filter(tags, function(tag) {
+      return tag.indexOf(req.query.term) > -1;
+    });
+    tags = _.sortBy(tags);
+    res.json(tags);
+  });
+};

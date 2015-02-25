@@ -167,5 +167,43 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
             }
           });
       };
+
+
+      //Tag search 
+
+      var fetchTags = function(query) {
+        $http.get('/fetch/tags', {
+            params: {
+              term: query.term
+            }
+          }).success(function(data, status, headers, config) {
+            var items = {
+              results: []
+            };
+            var count = 0;
+            angular.forEach(data, function(datum) {
+              items.results.push({
+                text: datum,
+                id: datum
+              });
+              count=count+1;
+            });
+            query.callback(items);
+          })
+          .error(function(data, status, headers, config) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+          });
+      };
+
+      $scope.tagsOptions = {
+        multiple: true,
+        simple_tags: true,
+        allowClear: true,
+        minimumInputLength: 3,
+        quietMillis: 500,
+        query: fetchTags
+      };
+
   }
 ]);
