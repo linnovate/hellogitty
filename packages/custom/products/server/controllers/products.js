@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
     formidable = require('formidable'),
+    Category = mongoose.model('Category'),
     Product = mongoose.model('Product'),
     path = require('path'),
     fs = require('fs'),
@@ -37,8 +38,9 @@ exports.create = function(req, res) {
  * List of Products
  */
 exports.all = function(req, res) {
-  Product.find().sort('-created').exec(function(err, products) {
+  Product.find().sort('-created').populate('category', 'name').exec(function(err, products) {
     if (err) {
+      console.log(err);
       return res.status(500).json({
         error: 'Cannot list the products'
       });
@@ -71,7 +73,7 @@ exports.destroy = function(req, res) {
 exports.findOne= function(req, res) {
   Product.find({
     '_id':req.params.productId
-  }).exec(function(err, product){
+  }).populate('category', 'name').exec(function(err, product){
     if(!err){
       res.json(product);
     }
@@ -168,3 +170,17 @@ exports.showFeatured = function(req,res){
       }
   });
  };
+
+ /**
+ * List of Categories
+ */
+exports.allCategories = function(req, res) {
+  Category.find().sort('-created').exec(function(err, categories) {
+    if (err) {
+      return res.status(500).json({
+        error: 'Cannot list the categories'
+      });
+    }
+    res.json(categories);
+  });
+};

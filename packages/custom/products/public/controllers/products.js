@@ -61,7 +61,6 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
       .$promise.then(function(products){
         
         if(products){
-          console.log(products);
           products[0].tags=products[0].tags.toString();
           $scope.product = products[0];
           
@@ -155,5 +154,18 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$re
       };
 
       /*image upload*/
+
+      //list of all categories
+      
+
+      $scope.allCategories = function(){
+        $scope.hello ='helssslo';
+        $resource('/products/categories').query()
+        .$promise.then(function(categoryList) {
+            if (categoryList) {
+              $scope.clist = categoryList;
+            }
+          });
+      };
   }
 ]);

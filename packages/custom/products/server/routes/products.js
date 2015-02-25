@@ -8,6 +8,7 @@ module.exports = function(Products, app, auth, database) {
 
   app.post('/products', product.create);
   app.get('/products/all',product.all);
+  app.get('/products/categories',product.allCategories);
   app.get('/products/:productId',product.findOne);
   app.put('/products/:productId',product.update);
   app.delete('/products/:productId', product.destroy);

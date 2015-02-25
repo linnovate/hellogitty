@@ -27,6 +27,7 @@
       <div class="col-md-6">
         <div class="col-md-10"><div class="page-header"><h4>Name :  {{product.title}}</h4></div></div><!--col-ends-->
         <div class="col-md-2"><a href="/#!/products/edit/{{product._id}}"><i class="glyphicon glyphicon-edit"></i></a> <a class="btn" data-ng-click="remove(product);"><i class="glyphicon glyphicon-trash"></i></a> </div><!--col-ends-->
+        <div class="col-md-12"><div class="page-header"><h5>Category :  {{product.category.name}}</h4></div></div><!--col-ends-->
         <div class="col-md-12"><div class="page-header"><h5>Description :  {{product.description}}</h4></div></div><!--col-ends-->
         <div class="col-md-12"><div class="page-header"><h5>Amount  :  {{product.amount}}</h4></div></div><!--col-ends-->
         <div class="col-md-12"><div class="page-header"><h5>Tags  :  {{product.tags}}</h4></div></div><!--col-ends-->

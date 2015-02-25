@@ -17,12 +17,15 @@
                     <input type="text" class="form-control" placeholder="Product name" name="title" data-ng-model="title">
                 </div>
                 <div class="form-group">
+                
+                <DIV data-ng-init="allCategories()";>
+                      
                   <label for="packageCategories"> Category </label>
                     <select class="form-control" data-ng-model="category">
-                      <option>social</option>
-                      <option>media</option>
-                      <option>admin</option>
-                    </select>
+                        <option data-ng-repeat="cat in clist" value="{{cat._id}}">{{cat.name}}</option>                        
+                    </select>                    
+                </DIV>  
+
                 </div>
                 <div class="form-group">
                     <label for="ProductDesc">Product Description</label>
