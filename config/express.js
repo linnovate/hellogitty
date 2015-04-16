@@ -16,6 +16,8 @@ module.exports = function(app, db) {
 
   app.set('showStackError', true);
 
+  app.use('/files', express.static(config.root + '/files'));
+
   // Prettify HTML
   app.locals.pretty = true;
 

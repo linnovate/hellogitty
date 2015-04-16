@@ -1,0 +1,63 @@
+<div class="" data-ng-controller="CategoriesController">
+  <div data-ng-if="hasPermission('canCreateProduct')">
+
+  <h2>Package: {{package.name}}</h2>
+  <div class="page-header"><h4>{{package.desc}}</h4></div>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="/#!/categories/example">Home</a></li>
+    <li role="presentation" class="active"><a href="#">Add</a></li>
+    <li role="presentation"><a href="/#!/categories/list">View</a></li>
+  </ul>
+
+
+  
+    <form class="content" name="categoryForm" data-ng-submit="create(categoryForm)">
+      <div class="col-md-12" >
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="Category name" >Name</label>
+          <input type="text" class="form-control" placeholder="Category Name" data-ng-model="title"/>
+        </div>
+      </div>
+      <div class="col-md-8">
+      </div>
+      </div>
+      <div class="col-md-12">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="Category name" >Description</label>
+          <textarea class="form-control" rows="4" data-ng-model="description"></textarea>
+        </div>
+          <button type="submit" class="btn btn-default">Add Category</button>
+      </div>
+      <div class="col-md-8">
+      </div>
+      </div><!--col ends-->
+    </form>
+
+
+<!--   <ol>
+    <li>
+      <a href="categories/example/anyone">Server route that anyone can access</a>
+    </li>
+    <li>
+      <a href="categories/example/auth">Server route that requires authentication</a>
+    </li>
+    <li>
+      <a href="categories/example/admin">Server route that requires admin user</a>
+    </li>
+    <li>
+      <a href="categories/example/render">Raw Html rendering example from using swig</a>
+    </li>
+  </ol>
+  <h3><img src="/categories/assets/img/logo.png" /></h3>
+  </br>
+  <p class="alert alert-info">You can find your package in /packages/categories</p>
+  </br>
+  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/categories</p>
+  </br>
+  <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
+  </br> -->
+</div><!--permission-->
+</div>
+

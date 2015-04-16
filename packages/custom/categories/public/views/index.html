@@ -1,0 +1,38 @@
+<div class="" data-ng-controller="CategoriesController">
+  
+  <h2>Package: {{package.name}}</h2>
+  <div class="page-header"><h4>{{package.desc}}</h4></div>
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="/#!/categories/add">Add</a></li>
+    <li role="presentation"><a href="/#!/categories/list">View</a></li>
+  </ul>
+
+  <div data-ng-if="hasPermission('canCreateProduct')">can add</div>
+  <div data-ng-if="hasPermission('canManageProduct')">can manage</div>
+  <div data-ng-if="hasPermission('canDeleteProduct')">can delete</div>
+
+<!--   <ol>
+    <li>
+      <a href="categories/example/anyone">Server route that anyone can access</a>
+    </li>
+    <li>
+      <a href="categories/example/auth">Server route that requires authentication</a>
+    </li>
+    <li>
+      <a href="categories/example/admin">Server route that requires admin user</a>
+    </li>
+    <li>
+      <a href="categories/example/render">Raw Html rendering example from using swig</a>
+    </li>
+  </ol>
+  <h3><img src="/categories/assets/img/logo.png" /></h3>
+  </br>
+  <p class="alert alert-info">You can find your package in /packages/categories</p>
+  </br>
+  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/categories</p>
+  </br>
+  <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
+  </br> -->
+</div>
+

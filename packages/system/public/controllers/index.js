@@ -1,49 +1,64 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
-  function($scope, Global) {
+angular.module('mean.system').controller('IndexController', ['$scope', 'Global','$resource','$stateParams','$location',
+  function($scope, Global,$resource,$stateParams,$location) {
     $scope.global = Global;
-    $scope.sites = {
-      'makeapoint':{
-        'name':'makeapoint',
-        'text':'Makeapoint is a platform to craft and fine-tune ideas and messages providing a graphical experience which brough an offline methodlogy online',
-        'author':'Linnovate',
-        'link':'http://www.linnovate.net',
-        'image':'/theme/assets/img/makeapoint.png'
-      },
-      'cactus':{
-        'name':'Cactus Intranet',
-        'text':'Cactus Intranet is an enterprise social network with features like real-time newsfeed, notifications, groups, events, polls, referral system etc. The system has role based permission system, allowing different stakeholders access and controls relevant to them.',
-        'author':'QED42',
-        'link':'http://www.qed42.com',
-        'image':'/theme/assets/img/cactus.png'
-      }
-    };
-    $scope.packages = {
-      'gmap':{
-        'name':'gmap',
-        'text':'gmap lets you add geographical information to your applications objects',
-        'author':'linnovate',
-        'link':'http://www.qed42.com',
-        'image':'/theme/assets/img/gmap.png'
-      },
-      'upload':{
-        'name':'Upload',
-        'text':'hello text',
-        'author':'Linnovate',
-        'link':'http://www.linnovate.net',
-        'image':'http://cdn.designbyhumans.com/pictures/blog/09-2013/pop-culture-cats/Pop_Culture_Cats_Hamilton_Hipster.jpg'
-      },
-      'socket':{
-        'name':'Socket',
-        'text':'Socket.io support',
-        'author':'Linnovate',
-        'link':'http://www.linnovate.net',
-        'image':'http://cdn.designbyhumans.com/pictures/blog/09-2013/pop-culture-cats/Pop_Culture_Cats_Hamilton_Hipster.jpg'
-      }
+   
+   $scope.featuredList = function(){
+
+      $resource('/product/featured').query()
+      .$promise.then(function(productList) {
+          if (productList) {
+            $scope.list = productList;
+          }
+        });
+
+    }; 
+
+    $scope.categoryList = function(){
+      $resource('/categories/all').query()
+      .$promise.then(function(categories){
+        if(categories){
+          $scope.clist = categories;
+        }
+      });
     };
 
-    $scope.$watch(function () {
+    $scope.findOne = function() {
+      var productId = $stateParams.productId;
+       $resource('/products/'+productId).query()
+      .$promise.then(function(products){
+        
+        if(products){
+          products[0].tags=products[0].tags.toString();
+          $scope.product = products[0];
+          
+        }
+      });
+    };
+
+     $scope.searchByName = function(title){
+        var searchName = title;
+        
+        $location.path('/search/' + searchName);
+        
+      };
+
+     $scope.searchResult = function(){
+        var searchName= $stateParams.searchName; 
+          $resource('/products/search/' + searchName).query()
+          .$promise.then(function(products){
+              if(products){
+                $scope.result=products;
+                $scope.searchName = searchName ;
+              }else{
+                $scope.msg='no product found';
+              }
+          });
+
+      };
+
+/*    $scope.$watch(function () {
       for (var i = 0; i < $scope.sites.length; i+=1) {
         if ($scope.sites[i].active) {
           return $scope.sites[i];
@@ -53,6 +68,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       if (currentSlide !== previousSlide) {
         console.log('currentSlide:', currentSlide);
       }
-    });
+    });*/
   }
 ]);
