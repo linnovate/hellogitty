@@ -1,0 +1,74 @@
+<section class="container" data-ng-controller="IndexController">
+  <div class="row">
+   <div class="col-md-12">
+    <ul class="nav navbar-nav">
+        <li><a href="/#!/">Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/#!/packages">Packages</a></li>
+        <li class="dropdown">
+          <a href="/#!/categories" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Social</a></li>
+            <li><a href="#">SEO</a></li>
+          </ul>
+        </li>
+     </ul>
+      <form  role="search" data-ng-submit="searchByName(title)" class="navbar-form navbar-right form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" data-ng-model="title">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </div><!--col ends-->
+  </div><!-- row ends-->
+  <hr>
+
+  <div data-ng-init="findOne()">
+  <section>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header"><h3>{{product.title}}</h3></div>
+            <ol class="breadcrumb">
+              <li><a href="#">{{product.category.name}}</a></li>
+              <li class="active">{{product.title}}</li>
+            </ol>
+          </div><!-- col ends -->
+        </div><!-- row ends -->
+
+         <div class="row">
+          <div class="col-md-12">
+            <img src="../files/public/featured/{{product.path}}">
+          </div><!-- col ends -->
+        </div><!-- row ends -->
+         <div class="row">
+          <div class="col-md-12">
+                Amount  :  {{product.amount}}
+          </div><!-- col ends -->
+        </div><!-- row ends -->
+         <div class="row">
+          <div class="col-md-12">
+            <p>Tags  :  {{product.tags}}</p>
+          </div><!-- col ends -->
+        </div><!-- row ends -->
+
+
+      </div><!-- col ends -->
+      <div class="col-md-1">
+
+      </div><!-- col ends -->
+      <div class="col-md-8">
+
+        <div class="col-md-12"><div class="page-header"><h5>Description :  {{product.description}}</h4></div></div><!--col-ends-->
+        
+
+      </div><!-- col ends -->
+
+
+    </div><!-- row ends-->
+  </section>
+  </div>
+
+
+</section>

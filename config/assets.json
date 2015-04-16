@@ -1,7 +1,10 @@
 {
   "core": {
     "css": {
-      "bower_components/build/css/dist.min.css": []
+      "bower_components/build/css/dist.min.css": [
+        "bower_components/angular-upload/src/directives/btnUpload.min.css",
+        "bower_components/select2/select2.css"
+      ]
     },
     "js": {
       "bower_components/build/js/dist.min.js": [
@@ -12,7 +15,12 @@
         "bower_components/angular-resource/angular-resource.min.js",
         "bower_components/angular-ui-router/release/angular-ui-router.min.js",
         "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
-        "bower_components/web-bootstrap/index.js"
+        "bower_components/web-bootstrap/index.js",
+        "bower_components/web-bootstrap/index.js",
+        "bower_components/angular-upload/angular-upload.js",
+        "bower_components/jquery/dist/jquery.min.js",
+        "bower_components/select2/select2.js",
+        "bower_components/angular-ui-select2/src/select2.js"
       ]
     }
   }

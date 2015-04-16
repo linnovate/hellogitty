@@ -1,0 +1,7 @@
+{
+  "name": "permission",
+  "version": "0.0.1",
+  "dependencies": {
+    "checklist-model": "https://github.com/vitalets/checklist-model.git"
+  }
+}

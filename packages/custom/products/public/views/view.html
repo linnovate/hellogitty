@@ -1,0 +1,43 @@
+<div class="" data-ng-controller="ProductsController">
+  
+
+
+  
+
+
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="/#!/products/add">Add</a></li>
+      <li role="presentation" class="active" ><a href="/#!/products/list">View</a></li>
+      <li role="presentation"><a href="#">Edit</a></li>
+    </ul>
+  </div>
+
+	<br>
+  	<br>
+  <div data-ng-init="findOne()">
+
+  	<div class="col-md-12">
+  		<ol class="breadcrumb">
+		  <li><a href="#">Home</a></li>
+		  <li><a href="/#!/products/list">Product</a></li>
+		  <li class="active">{{product.title}}</li>
+		</ol>
+  	</div><!-- col ends -->
+      <div class="col-md-6">
+        <div class="col-md-10"><div class="page-header"><h4>Name :  {{product.title}}</h4></div></div><!--col-ends-->
+        <div class="col-md-2"><a href="/#!/products/edit/{{product._id}}"><i class="glyphicon glyphicon-edit"></i></a> <a class="btn" data-ng-click="remove(product);"><i class="glyphicon glyphicon-trash"></i></a> </div><!--col-ends-->
+        <div class="col-md-12"><div class="page-header"><h5>Category :  {{product.category.name}}</h4></div></div><!--col-ends-->
+        <div class="col-md-12"><div class="page-header"><h5>Description :  {{product.description}}</h4></div></div><!--col-ends-->
+        <div class="col-md-12"><div class="page-header"><h5>Amount  :  {{product.amount}}</h4></div></div><!--col-ends-->
+        <div class="col-md-12"><div class="page-header"><h5>Tags  :  {{product.tags}}</h4></div></div><!--col-ends-->
+        <div class="col-md-12"><img src="../../../../../files/public/featured/{{product.path}}"> </div><!--col-ends-->
+        <div class="col-md-12"></div><!--col-ends-->
+        
+      </div><!--col-ends-->
+    </div>
+  
+
+</div>
+
+
