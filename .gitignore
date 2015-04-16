@@ -55,6 +55,10 @@ node_modules/
 # --------------------
 .bower-*/
 bower_components
+# --------------------
+# Migration File
+# --------------------
+migrations/.migrate
 
 # --------------------
 # App Files
