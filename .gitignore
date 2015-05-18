@@ -55,15 +55,21 @@ node_modules/
 # --------------------
 .bower-*/
 bower_components
-# --------------------
-# Migration File
-# --------------------
-migrations/.migrate
 
 # --------------------
 # App Files
 # --------------------
+data/
 test/coverage/
 modules/public/
 modules/views/
 /public/build/
+/packages/contrib/
+/packages/**/**/public/assets/lib
+
+
+# --------------------
+# vim Files
+# --------------------
+*.swp
+
