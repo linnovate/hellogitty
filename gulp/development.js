@@ -43,6 +43,14 @@ gulp.task('less', function() {
     }));
 });
 
+gulp.task('sass', function() {
+  return gulp.src(paths.sass)
+    .pipe(plugins.sass())
+    .pipe(gulp.dest(function (vinylFile) {
+      return vinylFile.cwd;
+    }));
+});
+
 gulp.task('devServe', ['env:development'], function () {
   plugins.nodemon({
     script: 'server.js',
@@ -57,7 +65,7 @@ gulp.task('watch', function () {
   gulp.watch(paths.js, ['jshint']).on('change', plugins.livereload.changed);
   gulp.watch(paths.html).on('change', plugins.livereload.changed);
   gulp.watch(paths.css, ['csslint']).on('change', plugins.livereload.changed);
-  gulp.watch(paths.less, ['less']).on('change', plugins.livereload.changed);
+  gulp.watch(paths.sass, ['sass']).on('change', plugins.livereload.changed);
   plugins.livereload.listen({interval: 500});
 });
 
